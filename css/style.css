@@ -31,17 +31,6 @@ body {
   justify-content: center;
 }
 
-/* Fixed Background spanning the whole screen */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-image: url('../assets/hero_bg.jpg');
-  background-size: cover;
-  background-position: center;
-  z-index: -2;
-}
-
 .hidden {
   display: none !important;
 }
@@ -53,7 +42,11 @@ body::before {
 .mobile-wrapper {
   width: 100%;
   max-width: 480px; 
-  background-color: rgba(251, 241, 230, 0.3); /* Transparent to let theme show */
+  background-color: var(--c-ivory);
+  background-image: url('../assets/hero_bg.jpg');
+  background-size: 100% auto; /* Stretches to width, repeats vertically */
+  background-repeat: repeat;
+  background-position: top center;
   min-height: 100vh;
   box-shadow: 0 0 40px rgba(0,0,0,0.1);
   position: relative;
