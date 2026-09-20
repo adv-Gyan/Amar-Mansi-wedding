@@ -19,40 +19,12 @@ document.addEventListener("DOMContentLoaded", () => {
         
         // Ensure scroll is at top
         window.scrollTo(0, 0);
-
-        // Initialize observers once main content is visible
-        initObserver();
       }, 500); // Reduced delay for immediate response
     });
   }
 
   /* =========================================================
-     2. INTERSECTION OBSERVER
-     ========================================================= */
-  function initObserver() {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            // We want to trigger it once
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.1,
-        rootMargin: "0px 0px -5% 0px"
-      }
-    );
-
-    document
-      .querySelectorAll(".reveal")
-      .forEach((el) => observer.observe(el));
-  }
-
-  /* =========================================================
-     3. COUNTDOWN
+     2. COUNTDOWN
      ========================================================= */
   // Target: December 2, 2026 @ 10:00 AM
   const targetDate = new Date("2026-12-02T10:00:00+05:30").getTime();
@@ -85,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setInterval(updateCountdown, 1000);
 
   /* =========================================================
-     4. TIMELINE SCROLL (SVG WAVY LINE)
+     3. TIMELINE SCROLL (SVG WAVY LINE)
      ========================================================= */
   const timelinePath = document.getElementById("timelineProgress");
   
@@ -109,8 +81,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const sectionHeight = timelineSection.offsetHeight;
       
       // Calculate how far we've scrolled into the section
-      // Start filling when the top of the section enters the bottom of the screen
-      // Finish filling when the bottom of the section leaves the top of the screen
       const scrollPosition = scrollY + windowHeight;
       const progress = (scrollPosition - sectionTop) / sectionHeight;
       
