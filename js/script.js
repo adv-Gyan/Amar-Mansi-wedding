@@ -137,3 +137,57 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll('.reveal, .hero-section, .invite-footer').forEach(el => {
     observer.observe(el);
   });
+
+  /* =========================================================
+     5. RSVP FORM SUBMISSION
+     ========================================================= */
+  const rsvpForm = document.getElementById('rsvpForm');
+  const rsvpSubmitBtn = document.getElementById('rsvpSubmitBtn');
+
+  if (rsvpForm) {
+    rsvpForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const originalText = rsvpSubmitBtn.textContent;
+      rsvpSubmitBtn.textContent = "Sending...";
+      rsvpSubmitBtn.disabled = true;
+
+      // Extract form data
+      const formData = new FormData(rsvpForm);
+      const data = Object.fromEntries(formData.entries());
+      data.events = formData.getAll("events").join(", ");
+      
+      // SIMULATE SUBMISSION (Since we don't have a backend URL yet)
+      // See below for Google Sheets integration instructions
+      setTimeout(() => {
+        alert(`Thank you, ${data.name}! Your RSVP has been received.\n\n(Note: To actually save this to an Excel/Google Sheet, follow the instructions provided by the AI).`);
+        rsvpForm.reset();
+        rsvpSubmitBtn.textContent = "RSVP Confirmed!";
+        rsvpSubmitBtn.style.background = "#2c5f2d"; // Green success color
+        rsvpSubmitBtn.style.color = "white";
+        rsvpSubmitBtn.disabled = false;
+      }, 800);
+
+      /*
+      // --- REAL GOOGLE SHEETS / EXCEL SUBMISSION CODE ---
+      // Replace 'YOUR_WEB_APP_URL' with the link from Google Apps Script
+      
+      fetch('YOUR_WEB_APP_URL', {
+        method: 'POST',
+        body: new URLSearchParams(data)
+      })
+      .then(res => res.json())
+      .then(response => {
+        alert("Thank you! Your RSVP is confirmed.");
+        rsvpForm.reset();
+        rsvpSubmitBtn.textContent = originalText;
+        rsvpSubmitBtn.disabled = false;
+      })
+      .catch(err => {
+        alert("Error sending RSVP. Please try again.");
+        rsvpSubmitBtn.textContent = originalText;
+        rsvpSubmitBtn.disabled = false;
+      });
+      */
+    });
+  }

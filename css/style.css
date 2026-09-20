@@ -486,7 +486,7 @@ h1, h2, h3 { font-weight: normal; }
   opacity: 0.9;
 }
 
-.rsvp-form {
+.rsvp-card {
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -543,7 +543,7 @@ h1, h2, h3 { font-weight: normal; }
 
 .couple-text,
 .venue-card,
-.rsvp-form {
+.rsvp-card {
   background: rgba(251, 241, 230, 0.96); /* More opaque ivory to compensate for no blur */
   /* backdrop-filter removed for huge performance boost on mobile */
   border-radius: 12px;
@@ -568,7 +568,7 @@ h1, h2, h3 { font-weight: normal; }
   margin-bottom: 20px;
 }
 
-.rsvp-form {
+.rsvp-card {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -614,3 +614,51 @@ h1, h2, h3 { font-weight: normal; }
 }
 
 
+
+/* Expanded RSVP styling */
+.rsvp-card {
+  background: rgba(251, 241, 230, 0.96);
+  border-radius: 12px;
+  padding: 30px 20px;
+  margin: 0 15px 30px;
+  border: 1px solid rgba(212,175,55,0.4);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.rsvp-events {
+  width: 100%;
+  text-align: left;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  color: var(--c-brown);
+  font-family: var(--font-body);
+}
+
+.rsvp-events-title {
+  font-family: var(--font-sub);
+  color: var(--c-maroon);
+  margin-bottom: 10px;
+  font-size: 1rem;
+  border-bottom: 1px solid rgba(212,175,55,0.3);
+  padding-bottom: 5px;
+}
+
+.rsvp-events label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.rsvp-events input[type="checkbox"] {
+  margin-right: 8px;
+  accent-color: var(--c-maroon);
+}
+
+.rsvp-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+}

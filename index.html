@@ -180,7 +180,7 @@
       <div class="venue-card reveal">
         <h3>Main Venue</h3>
         <p>Maidan Residency<br>Pandav Nagar, Ghaziabad, UP</p>
-        <a href="https://maps.google.com" target="_blank" class="am-button">Open in Maps</a>
+        <a href="https://maps.app.goo.gl/m4DGpfXupRXmSchZ7" target="_blank" class="am-button">Open in Maps</a>
       </div>
     </section>
 
@@ -188,14 +188,29 @@
     <!-- RSVP SECTION -->
     <section class="invite-section rsvp-section">
       <h2 class="section-title reveal reveal--up">RSVP</h2>
-      <form class="rsvp-form reveal reveal--up" onsubmit="event.preventDefault(); alert('Thank you! Your RSVP has been received.');">
-        <input type="text" placeholder="Your Name" required class="am-input">
-        <select class="am-input">
-          <option value="attending">Joyfully Attending</option>
-          <option value="declining">Regretfully Declining</option>
-        </select>
-        <button type="submit" class="am-button">Confirm Attendance</button>
-      </form>
+      <div class="rsvp-card reveal reveal--up">
+        <form class="rsvp-form" id="rsvpForm" action="#" method="POST">
+          <input type="text" name="name" placeholder="Full Name" required class="am-input">
+          <input type="tel" name="phone" placeholder="Phone Number" required class="am-input">
+          
+          <select name="attendance" class="am-input" required>
+            <option value="" disabled selected>Will you be joining us?</option>
+            <option value="attending">Joyfully Attending</option>
+            <option value="declining">Regretfully Declining</option>
+          </select>
+          
+          <input type="number" name="guests" placeholder="Total Number of Guests" min="1" max="10" class="am-input">
+          
+          <div class="rsvp-events">
+            <p class="rsvp-events-title">Which events will you attend?</p>
+            <label><input type="checkbox" name="events" value="Haldi"> Haldi</label>
+            <label><input type="checkbox" name="events" value="Engagement"> Engagement</label>
+            <label><input type="checkbox" name="events" value="Wedding"> Wedding</label>
+          </div>
+          
+          <button type="submit" class="am-button" id="rsvpSubmitBtn">Confirm Attendance</button>
+        </form>
+      </div>
     </section>
 
     <!-- FOOTER -->
