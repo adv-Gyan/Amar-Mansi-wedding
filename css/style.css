@@ -42,27 +42,16 @@ body {
 .mobile-wrapper {
   width: 100%;
   max-width: 480px; 
-  background-color: transparent;
+  background-color: var(--c-ivory);
+  background-image: url('../assets/main_bg.png');
+  background-size: 100% 100%; /* Stretch completely to match full scroll height */
+  background-repeat: no-repeat;
+  background-position: top center;
   min-height: 100vh;
   box-shadow: 0 0 40px rgba(0,0,0,0.1);
   position: relative;
   overflow-x: hidden;
   z-index: 1; /* Create stacking context */
-}
-
-/* Hardware-accelerated fixed background to prevent scroll lag (jank) */
-.mobile-wrapper::before {
-  content: "";
-  position: fixed;
-  inset: -10%; /* slight bleed to prevent edge showing */
-  background-image: url('../assets/main_bg.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  z-index: -1;
-  /* Hardware acceleration */
-  transform: translateZ(0);
-  will-change: transform;
 }
 
 /* =========================================================
