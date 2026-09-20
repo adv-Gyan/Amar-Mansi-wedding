@@ -16,6 +16,10 @@
 
 <div class="mobile-wrapper">
 
+  <!-- MAGIC DUST EFFECT -->
+  <div class="gold-particles"></div>
+
+
   <!-- ENVELOPE OVERLAY -->
   <div class="invite-envelope-wrapper" id="inviteEnvelopeWrapper">
     <div class="envelope-content-container">
@@ -58,10 +62,10 @@
 
     <!-- COUPLE / STORY SECTION -->
     <section class="invite-section couple-section">
-      <div class="photo-container">
+      <div class="photo-container reveal reveal--scale">
         <img src="assets/couple_reference.jpg" alt="Amar & Mansi" class="couple-photo">
       </div>
-      <div class="couple-text">
+      <div class="couple-text reveal reveal--up">
         <h2 class="accent-title">Two Souls, One Journey</h2>
         <p class="body-text">With grateful hearts, we invite you to be a part of our special day as we begin a lifetime of love and togetherness.</p>
         <p class="body-text">Home looks brighter with you.</p>
@@ -71,17 +75,17 @@
     <div class="theme-separator"><span>✤</span></div>
     <!-- TIMELINE EVENTS SECTION -->
     <section class="invite-section timeline-section">
-      <h2 class="section-title">Mark Your Calendar</h2>
+      <h2 class="section-title reveal reveal--up">Mark Your Calendar</h2>
       
       <div class="timeline-container">
         <!-- The Wavy SVG Line -->
         <svg class="wavy-line" viewBox="0 0 100 100" preserveAspectRatio="none">
-          <path d="M 50 0 C 160 8, 160 22, 50 30 C -60 40, -60 55, 50 65 C 160 75, 160 90, 50 100" fill="none" stroke="rgba(212,175,55,0.2)" stroke-width="1.5" />
-          <path id="timelineProgress" d="M 50 0 C 160 8, 160 22, 50 30 C -60 40, -60 55, 50 65 C 160 75, 160 90, 50 100" fill="none" stroke="#b30000" stroke-width="3" />
+          <path d="M 50 0 C 160 8, 160 22, 50 30 C -60 40, -60 55, 50 65 C 160 75, 160 90, 50 100" fill="none" stroke="rgba(212,175,55,0.2)" stroke-width="2" />
+          <path id="timelineProgress" d="M 50 0 C 160 8, 160 22, 50 30 C -60 40, -60 55, 50 65 C 160 75, 160 90, 50 100" fill="none" stroke="#b30000" stroke-width="5" />
         </svg>
 
         <!-- Haldi -->
-        <div class="timeline-item">
+        <div class="timeline-item reveal event-card">
           <div class="timeline-image landscape">
             <img src="assets/haldi.jpg" alt="Haldi">
           </div>
@@ -94,7 +98,7 @@
         </div>
 
         <!-- Engagement -->
-        <div class="timeline-item">
+        <div class="timeline-item reveal event-card">
           <div class="timeline-image landscape">
             <img src="assets/engagement.jpg" alt="Engagement">
           </div>
@@ -107,7 +111,7 @@
         </div>
 
         <!-- Wedding -->
-        <div class="timeline-item">
+        <div class="timeline-item reveal event-card">
           <div class="timeline-image landscape">
             <img src="assets/wedding.jpg" alt="Wedding">
           </div>
@@ -125,8 +129,8 @@
     <div class="theme-separator"><span>✤</span></div>
     <!-- COUNTDOWN SECTION -->
     <section class="invite-section countdown-section">
-      <h2 class="section-title">The Big Day</h2>
-      <div class="countdown-wrapper">
+      <h2 class="section-title reveal reveal--up">The Big Day</h2>
+      <div class="countdown-wrapper reveal">
         
         <div class="cd-box">
           <div class="cd-flourish top">✤</div>
@@ -172,8 +176,8 @@
     <div class="theme-separator"><span>✤</span></div>
     <!-- VENUE MAP SECTION -->
     <section class="invite-section venue-section">
-      <h2 class="section-title">Directions</h2>
-      <div class="venue-card">
+      <h2 class="section-title reveal reveal--up">Directions</h2>
+      <div class="venue-card reveal">
         <h3>Main Venue</h3>
         <p>Maidan Residency<br>Pandav Nagar, Ghaziabad, UP</p>
         <a href="https://maps.google.com" target="_blank" class="am-button">Open in Maps</a>
@@ -183,8 +187,8 @@
     <div class="theme-separator"><span>✤</span></div>
     <!-- RSVP SECTION -->
     <section class="invite-section rsvp-section">
-      <h2 class="section-title">RSVP</h2>
-      <form class="rsvp-form" onsubmit="event.preventDefault(); alert('Thank you! Your RSVP has been received.');">
+      <h2 class="section-title reveal reveal--up">RSVP</h2>
+      <form class="rsvp-form reveal reveal--up" onsubmit="event.preventDefault(); alert('Thank you! Your RSVP has been received.');">
         <input type="text" placeholder="Your Name" required class="am-input">
         <select class="am-input">
           <option value="attending">Joyfully Attending</option>

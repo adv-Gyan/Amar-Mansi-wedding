@@ -44,8 +44,8 @@ body {
   max-width: 480px;
   background-color: var(--c-ivory);
   background-image: url('../assets/main_bg.png');
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-repeat: repeat-y;
   background-position: top center;
   min-height: 100vh;
   box-shadow: 0 0 40px rgba(0,0,0,0.1);
@@ -390,7 +390,7 @@ h1, h2, h3 { font-weight: normal; }
   align-items: center;
   justify-content: center;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 150'%3E%3Cpath d='M 50 2 C 55 15, 70 10, 85 20 C 92 25, 96 32, 96 45 L 96 105 C 96 118, 92 125, 85 130 C 70 140, 55 135, 50 148 C 45 135, 30 140, 15 130 C 8 125, 4 118, 4 105 L 4 45 C 4 32, 8 25, 15 20 C 30 10, 45 15, 50 2 Z' fill='%23F1E4D3' stroke='%23b30000' stroke-width='1.5'/%3E%3Cpath d='M 50 2 C 55 15, 70 10, 85 20 C 92 25, 96 32, 96 45 L 96 105 C 96 118, 92 125, 85 130 C 70 140, 55 135, 50 148 C 45 135, 30 140, 15 130 C 8 125, 4 118, 4 105 L 4 45 C 4 32, 8 25, 15 20 C 30 10, 45 15, 50 2 Z' fill='none' stroke='%23B9924B' stroke-width='0.5' transform='translate(50,75) scale(0.92) translate(-50,-75)'/%3E%3C/svg%3E");
-  background-size: 100% 100%;
+  background-size: 100% auto;
   background-position: center;
   
   filter: drop-shadow(0 6px 10px rgba(0,0,0,0.15));
