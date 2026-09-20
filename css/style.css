@@ -42,16 +42,27 @@ body {
 .mobile-wrapper {
   width: 100%;
   max-width: 480px; 
-  background-color: var(--c-ivory);
-  background-image: url('../assets/main_bg.png');
-  background-size: cover;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-position: center;
+  background-color: transparent;
   min-height: 100vh;
   box-shadow: 0 0 40px rgba(0,0,0,0.1);
   position: relative;
   overflow-x: hidden;
+  z-index: 1; /* Create stacking context */
+}
+
+/* Hardware-accelerated fixed background to prevent scroll lag (jank) */
+.mobile-wrapper::before {
+  content: "";
+  position: fixed;
+  inset: -10%; /* slight bleed to prevent edge showing */
+  background-image: url('../assets/main_bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+  /* Hardware acceleration */
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 /* =========================================================
@@ -322,8 +333,8 @@ h1, h2, h3 { font-weight: normal; }
   display: flex;
   flex-direction: column; /* Stack them! */
   align-items: center;
-  background: rgba(251, 241, 230, 0.85); /* Ivory overlay */
-  backdrop-filter: blur(5px);
+  background: rgba(251, 241, 230, 0.96); /* Ivory overlay */
+  
   border-radius: 8px;
   border: 1px solid rgba(212,175,55,0.4);
   padding: 15px;
@@ -551,13 +562,12 @@ h1, h2, h3 { font-weight: normal; }
 .couple-text,
 .venue-card,
 .rsvp-form {
-  background: rgba(251, 241, 230, 0.85); /* Semi-transparent ivory */
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(251, 241, 230, 0.96); /* More opaque ivory to compensate for no blur */
+  /* backdrop-filter removed for huge performance boost on mobile */
   border-radius: 12px;
   padding: 30px 20px;
   margin: 0 15px 30px;
-  border: 1px solid rgba(212,175,55,0.4); /* subtle gold border */
+  border: 1px solid rgba(212,175,55,0.4);
   box-shadow: 0 10px 30px rgba(0,0,0,0.15);
   text-align: center;
 }

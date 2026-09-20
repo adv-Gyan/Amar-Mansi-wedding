@@ -68,29 +68,25 @@ document.addEventListener("DOMContentLoaded", () => {
     // Set up dash array and offset to hide the stroke initially
     timelinePath.style.strokeDasharray = pathLength;
     timelinePath.style.strokeDashoffset = pathLength;
+    // Use CSS transition for a smooth, lag-free animation
+    timelinePath.style.transition = "stroke-dashoffset 4s ease-in-out";
     
-    window.addEventListener("scroll", () => {
-      // Calculate scroll progress relative to the timeline section
-      const scrollY = window.scrollY;
-      const windowHeight = window.innerHeight;
+    const timelineSection = document.querySelector(".timeline-section");
+    
+    if (timelineSection) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Draw the line completely when it comes into view
+            timelinePath.style.strokeDashoffset = "0";
+            // Unobserve after animating once to save resources
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
       
-      const timelineSection = document.querySelector(".timeline-section");
-      if (!timelineSection) return;
-
-      const sectionTop = timelineSection.offsetTop;
-      const sectionHeight = timelineSection.offsetHeight;
-      
-      // Calculate how far we've scrolled into the section
-      const scrollPosition = scrollY + windowHeight;
-      const progress = (scrollPosition - sectionTop) / sectionHeight;
-      
-      // Clamp progress between 0 and 1
-      const clampedProgress = Math.min(Math.max(progress, 0), 1);
-      
-      // Update offset (from full length to 0)
-      const drawLength = pathLength * (1 - clampedProgress);
-      timelinePath.style.strokeDashoffset = drawLength;
-    }, { passive: true });
+      observer.observe(timelineSection);
+    }
   }
 
 });
