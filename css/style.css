@@ -40,7 +40,7 @@ body {
    ========================================================= */
 
 .mobile-wrapper {
-  width: 100%;
+  width: 120px;
   max-width: 480px; 
   background-color: var(--c-ivory);
   background-image: url('../assets/main_bg.png');
@@ -129,7 +129,7 @@ h1, h2, h3 { font-weight: normal; }
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 120px;
   transform: translateY(30px); /* Shift envelope lower */
 }
 
@@ -161,7 +161,7 @@ h1, h2, h3 { font-weight: normal; }
 }
 
 .envelope-image {
-  width: 100%;
+  width: 120px;
   border-radius: 8px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.25);
   display: block;
@@ -220,7 +220,7 @@ h1, h2, h3 { font-weight: normal; }
   z-index: 10; /* Above petals */
   text-align: center;
   padding: 25vh 20px 40px; /* Shift down to avoid overlap with AM logo on bg */
-  width: 100%;
+  width: 120px;
 }
 
 .hero-names {
@@ -281,7 +281,7 @@ h1, h2, h3 { font-weight: normal; }
 }
 
 .couple-photo {
-  width: 100%;
+  width: 120px;
   max-width: 65%; /* Make it smaller */
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
@@ -308,9 +308,9 @@ h1, h2, h3 { font-weight: normal; }
 .wavy-line {
   position: absolute;
   top: 0;
-  left: 0;
-  transform: none;
-  width: 100%; /* Much wavier */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px; /* Much wavier */
   height: 100%;
   z-index: 1;
 }
@@ -362,7 +362,7 @@ h1, h2, h3 { font-weight: normal; }
 }
 
 .timeline-image {
-  width: 100%;
+  width: 120px;
   border-radius: 6px;
   overflow: hidden;
   border: 2px solid var(--c-gold);
@@ -373,7 +373,7 @@ h1, h2, h3 { font-weight: normal; }
 }
 
 .timeline-image img {
-  width: 100%;
+  width: 120px;
   height: 100%;
   object-fit: cover;
 }
@@ -390,7 +390,7 @@ h1, h2, h3 { font-weight: normal; }
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 120px;
 }
 
 .cd-box {
@@ -460,7 +460,7 @@ h1, h2, h3 { font-weight: normal; }
   content: "✦";
   position: absolute;
   top: 50%;
-  left: 0;
+  left: 50%;
   transform: translate(-50%, -50%);
   color: var(--c-maroon);
   font-size: clamp(0.5rem, 2vw, 0.7rem);
@@ -590,7 +590,7 @@ h1, h2, h3 { font-weight: normal; }
 .rsvp-form input,
 .rsvp-form select,
 .rsvp-form button {
-  width: 100%;
+  width: 120px;
 }
 
 .section-title {
@@ -633,15 +633,9 @@ h1, h2, h3 { font-weight: normal; }
 }
 
 /* =========================================================
-   WAVY PATH ANIMATION
-   ========================================================= */
-#timelineProgress {
-  animation: map-path 3s linear infinite;
-  filter: drop-shadow(0 0 5px rgba(212,175,55,0.8));
+
 }
 
-@keyframes map-path {
-  to {
-    stroke-dashoffset: -20;
-  }
+#timelineProgress {
+  filter: drop-shadow(0 0 6px rgba(212,175,55,1));
 }

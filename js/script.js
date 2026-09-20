@@ -56,4 +56,60 @@ document.addEventListener("DOMContentLoaded", () => {
   updateCountdown();
   setInterval(updateCountdown, 1000);
 
+
+  /* =========================================================
+     3. TIMELINE SCROLL (SVG WAVY LINE)
+     ========================================================= */
+  const timelinePath = document.getElementById("timelineProgress");
+  
+  if (timelinePath) {
+    const pathLength = timelinePath.getTotalLength();
+    
+    // Hide stroke initially
+    timelinePath.style.strokeDasharray = pathLength;
+    timelinePath.style.strokeDashoffset = pathLength;
+    // Smooth trailing transition
+    timelinePath.style.transition = "stroke-dashoffset 0.15s ease-out";
+    
+    const timelineSection = document.querySelector(".timeline-section");
+    let sectionTop = 0;
+    let sectionHeight = 0;
+
+    // Cache dimensions to prevent layout thrashing on scroll
+    function updateDimensions() {
+      if (!timelineSection) return;
+      sectionTop = timelineSection.offsetTop;
+      sectionHeight = timelineSection.offsetHeight;
+    }
+
+    // Initial calculation
+    updateDimensions();
+    // Recalculate on resize
+    window.addEventListener("resize", updateDimensions);
+    
+    window.addEventListener("scroll", () => {
+      if (!timelineSection || sectionHeight === 0) return;
+      
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      
+      // Start drawing when the top of the section enters the bottom of the viewport
+      const startDrawPos = sectionTop - windowHeight;
+      // Finish drawing when the bottom of the section enters the bottom of the viewport (or slightly before)
+      const endDrawPos = sectionTop + sectionHeight - windowHeight;
+      
+      let progress = 0;
+      
+      if (scrollY > startDrawPos) {
+        progress = (scrollY - startDrawPos) / (endDrawPos - startDrawPos);
+      }
+      
+      // Clamp progress between 0 and 1
+      progress = Math.max(0, Math.min(1, progress));
+      
+      // Update offset (from full length to 0)
+      timelinePath.style.strokeDashoffset = pathLength * (1 - progress);
+    }, { passive: true });
+  }
+
 });
