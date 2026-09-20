@@ -44,9 +44,10 @@ body {
   max-width: 480px; 
   background-color: var(--c-ivory);
   background-image: url('../assets/main_bg.png');
-  background-size: 100% auto; /* Stretches to width, repeats vertically */
-  background-repeat: repeat;
-  background-position: top center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
   min-height: 100vh;
   box-shadow: 0 0 40px rgba(0,0,0,0.1);
   position: relative;
@@ -541,4 +542,53 @@ h1, h2, h3 { font-weight: normal; }
 .invite-footer .body-text {
   color: var(--c-pink);
   font-size: 0.8rem;
+}
+
+/* =========================================================
+   GLASS CARD STYLES FOR CLARITY OVER BACKGROUND
+   ========================================================= */
+
+.couple-text,
+.venue-card,
+.rsvp-form {
+  background: rgba(251, 241, 230, 0.85); /* Semi-transparent ivory */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 30px 20px;
+  margin: 0 15px 30px;
+  border: 1px solid rgba(212,175,55,0.4); /* subtle gold border */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  text-align: center;
+}
+
+.venue-card h3 {
+  font-family: var(--font-sub);
+  color: var(--c-maroon);
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+}
+
+.venue-card p {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: var(--c-brown);
+  margin-bottom: 20px;
+}
+
+.rsvp-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.rsvp-form input,
+.rsvp-form select,
+.rsvp-form button {
+  width: 100%;
+}
+
+.section-title {
+  text-shadow: 2px 2px 8px rgba(255,255,255,0.9);
 }
