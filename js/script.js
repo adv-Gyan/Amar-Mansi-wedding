@@ -56,37 +56,4 @@ document.addEventListener("DOMContentLoaded", () => {
   updateCountdown();
   setInterval(updateCountdown, 1000);
 
-  /* =========================================================
-     3. TIMELINE SCROLL (SVG WAVY LINE)
-     ========================================================= */
-  const timelinePath = document.getElementById("timelineProgress");
-  
-  if (timelinePath) {
-    // Calculate SVG path length
-    const pathLength = timelinePath.getTotalLength();
-    
-    // Set up dash array and offset to hide the stroke initially
-    timelinePath.style.strokeDasharray = pathLength;
-    timelinePath.style.strokeDashoffset = pathLength;
-    // Use CSS transition for a smooth, lag-free animation
-    timelinePath.style.transition = "stroke-dashoffset 4s ease-in-out";
-    
-    const timelineSection = document.querySelector(".timeline-section");
-    
-    if (timelineSection) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            // Draw the line completely when it comes into view
-            timelinePath.style.strokeDashoffset = "0";
-            // Unobserve after animating once to save resources
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1 });
-      
-      observer.observe(timelineSection);
-    }
-  }
-
 });
