@@ -40,9 +40,13 @@ body {
    ========================================================= */
 
 .mobile-wrapper {
-  width: 100%;
+  width: 120px;
   max-width: 480px; 
-  background-color: transparent;
+  background-color: var(--c-ivory);
+  
+  
+  
+  
   min-height: 100vh;
   box-shadow: 0 0 40px rgba(0,0,0,0.1);
   position: relative;
@@ -311,11 +315,6 @@ h1, h2, h3 { font-weight: normal; }
   z-index: 1;
 }
 
-#timelineProgress {
-  stroke-dasharray: 2000;
-  stroke-dashoffset: 2000;
-  transition: stroke-dashoffset 0.1s;
-}
 
 .timeline-item {
   position: relative;
@@ -632,9 +631,6 @@ h1, h2, h3 { font-weight: normal; }
 
 }
 
-#timelineProgress {
-  filter: drop-shadow(0 0 6px rgba(212,175,55,1));
-}
 
 /* Hardware-accelerated fixed background to prevent scroll lag and stretching */
 .mobile-wrapper::before {

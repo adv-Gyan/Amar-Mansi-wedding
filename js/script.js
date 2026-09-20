@@ -9,24 +9,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (envelopeWrapper && envelopeImage) {
     envelopeImage.addEventListener("click", () => {
-      // Trigger golden light boundary animation on the envelope
       envelopeImage.classList.add("is-glowing");
-
-      // Wait for glow animation, then fade out wrapper
       setTimeout(() => {
         envelopeWrapper.classList.add("is-hidden");
         mainContent.classList.remove("hidden");
-        
-        // Ensure scroll is at top
         window.scrollTo(0, 0);
-      }, 500); // Reduced delay for immediate response
+      }, 500); 
     });
   }
 
   /* =========================================================
      2. COUNTDOWN
      ========================================================= */
-  // Target: December 2, 2026 @ 10:00 AM
   const targetDate = new Date("2026-12-02T10:00:00+05:30").getTime();
 
   function updateCountdown() {
@@ -45,7 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
     Object.entries(values).forEach(([key, value]) => {
       const el = document.getElementById(key);
       if (!el) return;
-
       const next = String(value).padStart(2, "0");
       if (el.textContent !== next) {
         el.textContent = next;
@@ -83,32 +76,41 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Initial calculation
-    updateDimensions();
-    // Recalculate on resize
+    setTimeout(updateDimensions, 500); // slight delay to allow layout to settle
     window.addEventListener("resize", updateDimensions);
     
+    let isTicking = false;
     window.addEventListener("scroll", () => {
-      if (!timelineSection || sectionHeight === 0) return;
-      
-      const scrollY = window.scrollY;
-      const windowHeight = window.innerHeight;
-      
-      // Start drawing when the top of the section enters the bottom of the viewport
-      const startDrawPos = sectionTop - windowHeight;
-      // Finish drawing when the bottom of the section enters the bottom of the viewport (or slightly before)
-      const endDrawPos = sectionTop + sectionHeight - windowHeight;
-      
-      let progress = 0;
-      
-      if (scrollY > startDrawPos) {
-        progress = (scrollY - startDrawPos) / (endDrawPos - startDrawPos);
+      if (!isTicking) {
+        window.requestAnimationFrame(() => {
+          if (!timelineSection || sectionHeight === 0) {
+             updateDimensions();
+          }
+          
+          const scrollY = window.scrollY;
+          const windowHeight = window.innerHeight;
+          
+          // Start drawing when the top of the section enters the bottom of the viewport
+          const startDrawPos = sectionTop - windowHeight + 100;
+          // Finish drawing when the bottom of the section enters the bottom of the viewport (or slightly before)
+          const endDrawPos = sectionTop + sectionHeight - windowHeight - 50;
+          
+          let progress = 0;
+          
+          if (scrollY > startDrawPos) {
+            progress = (scrollY - startDrawPos) / (endDrawPos - startDrawPos);
+          }
+          
+          // Clamp progress between 0 and 1
+          progress = Math.max(0, Math.min(1, progress));
+          
+          // Update offset (from full length to 0)
+          timelinePath.style.strokeDashoffset = pathLength * (1 - progress);
+          
+          isTicking = false;
+        });
+        isTicking = true;
       }
-      
-      // Clamp progress between 0 and 1
-      progress = Math.max(0, Math.min(1, progress));
-      
-      // Update offset (from full length to 0)
-      timelinePath.style.strokeDashoffset = pathLength * (1 - progress);
     }, { passive: true });
   }
 
