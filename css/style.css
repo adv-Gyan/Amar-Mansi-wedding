@@ -217,7 +217,7 @@ h1, h2, h3 { font-weight: normal; }
   position: relative;
   z-index: 10; /* Above petals */
   text-align: center;
-  padding: 40px 20px;
+  padding: 25vh 20px 40px; /* Shift down to avoid overlap with AM logo on bg */
   width: 100%;
 }
 
@@ -229,6 +229,8 @@ h1, h2, h3 { font-weight: normal; }
   flex-direction: column;
   line-height: 1;
   text-shadow: 2px 2px 12px rgba(255,255,255,1), 0 0 20px rgba(255,255,255,0.8);
+  opacity: 1 !important;
+  transform: none !important;
 }
 
 .hero-names .ampersand {
