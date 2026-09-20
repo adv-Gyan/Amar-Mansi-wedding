@@ -42,16 +42,29 @@ body {
 .mobile-wrapper {
   width: 100%;
   max-width: 480px;
-  background-color: var(--c-ivory);
-  background-image: url('../assets/main_bg.png');
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: top center;
+  background-color: transparent;
   min-height: 100vh;
   box-shadow: 0 0 40px rgba(0,0,0,0.1);
   position: relative;
   overflow-x: hidden;
   z-index: 1;
+}
+
+.bg-frame {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  max-width: 480px;
+  height: 100vh;
+  background-image: url('../assets/main_bg.png');
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
 
 }
 
@@ -222,7 +235,7 @@ h1, h2, h3 { font-weight: normal; }
   z-index: 10; /* Above petals */
   text-align: center;
   padding: 25vh 20px 40px; /* Shift down to avoid overlap with AM logo on bg */
-  width: 120px;
+  width: 100%;
 }
 
 .hero-names {
@@ -283,7 +296,7 @@ h1, h2, h3 { font-weight: normal; }
 }
 
 .couple-photo {
-  width: 120px;
+  width: 100%;
   max-width: 65%; /* Make it smaller */
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
@@ -312,7 +325,7 @@ h1, h2, h3 { font-weight: normal; }
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 120px; /* Much wavier */
+  width: 100%; /* Much wavier */
   height: 100%;
   z-index: 1;
 }
@@ -359,7 +372,7 @@ h1, h2, h3 { font-weight: normal; }
 }
 
 .timeline-image {
-  width: 120px;
+  width: 100%;
   border-radius: 6px;
   overflow: hidden;
   border: 2px solid var(--c-gold);
@@ -370,7 +383,7 @@ h1, h2, h3 { font-weight: normal; }
 }
 
 .timeline-image img {
-  width: 120px;
+  width: 100%;
   height: 100%;
   object-fit: cover;
 }
@@ -387,7 +400,7 @@ h1, h2, h3 { font-weight: normal; }
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 120px;
+  width: 100%;
 }
 
 .cd-box {
@@ -587,7 +600,7 @@ h1, h2, h3 { font-weight: normal; }
 .rsvp-form input,
 .rsvp-form select,
 .rsvp-form button {
-  width: 120px;
+  width: 100%;
 }
 
 .section-title {
