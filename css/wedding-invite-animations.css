@@ -549,10 +549,11 @@
    ========================================================= */
 
 .petal-field {
-  position: absolute;
+  position: fixed;
   inset: 0;
   pointer-events: none;
   overflow: hidden;
+  z-index: 999;
 }
 
 .petal {
