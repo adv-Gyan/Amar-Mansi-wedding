@@ -4,13 +4,13 @@ document.addEventListener("DOMContentLoaded", () => {
      1. ENVELOPE OPENING LOGIC
      ========================================================= */
   const envelopeWrapper = document.getElementById("inviteEnvelopeWrapper");
-  const seal = document.getElementById("waxSeal");
+  const envelopeImage = document.getElementById("envelopeImage");
   const mainContent = document.getElementById("mainContent");
 
-  if (envelopeWrapper && seal) {
-    seal.addEventListener("click", () => {
-      // Trigger golden light boundary animation
-      seal.classList.add("is-glowing");
+  if (envelopeWrapper && envelopeImage) {
+    envelopeImage.addEventListener("click", () => {
+      // Trigger golden light boundary animation on the envelope
+      envelopeImage.classList.add("is-glowing");
 
       // Wait for glow animation, then fade out wrapper
       setTimeout(() => {
