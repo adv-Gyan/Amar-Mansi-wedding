@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Initialize observers once main content is visible
         initObserver();
-      }, 1200); // Wait 1.2s to enjoy the glow effect
+      }, 500); // Reduced delay for immediate response
     });
   }
 
