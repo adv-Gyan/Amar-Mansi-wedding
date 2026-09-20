@@ -381,8 +381,8 @@
 }
 
 .hero-names {
-  opacity: 0;
-  transform: translateY(24px);
+  opacity: 1;
+  transform: none;
 }
 
 .hero.is-visible .hero-names {
@@ -1042,8 +1042,8 @@
 .invite-footer {
   position: relative;
   text-align: center;
-  opacity: 0;
-  transform: translateY(25px);
+  opacity: 1;
+  transform: none;
 }
 
 .invite-footer.is-visible {

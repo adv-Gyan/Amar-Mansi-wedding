@@ -61,18 +61,12 @@ body {
 h1, h2, h3 { font-weight: normal; }
 
 .section-title {
-  font-size: clamp(3.2rem, 12vw, 4.5rem) !important;
-  color: var(--c-maroon) !important;
-  font-family: var(--font-accent) !important;
-  text-transform: none !important;
-  letter-spacing: 0 !important;
-  font-family: var(--font-sub);
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  font-size: 1.2rem;
+  font-family: var(--font-accent);
+  font-size: clamp(2.6rem, 10vw, 3.8rem);
   color: var(--c-maroon);
   text-align: center;
   margin-bottom: 2rem;
+  text-shadow: 2px 2px 0px rgba(251,241,230,0.8), 0 0 15px rgba(255,255,255,1), 0 2px 4px rgba(0,0,0,0.2);
 }
 
 .accent-title {
@@ -112,9 +106,7 @@ h1, h2, h3 { font-weight: normal; }
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(230, 220, 200, 0.85); 
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(230, 220, 200, 0.92); 
 }
 
 .invite-envelope-wrapper.is-hidden {
@@ -589,14 +581,7 @@ h1, h2, h3 { font-weight: normal; }
   width: 100%;
 }
 
-.section-title {
-  font-size: clamp(3.2rem, 12vw, 4.5rem) !important;
-  color: var(--c-maroon) !important;
-  font-family: var(--font-accent) !important;
-  text-transform: none !important;
-  letter-spacing: 0 !important;
-  text-shadow: 2px 2px 0px rgba(251,241,230,0.8), 0 0 15px rgba(255,255,255,1), 0 2px 4px rgba(0,0,0,0.2);
-}
+
 
 /* =========================================================
    THEMATIC SECTION SEPARATORS
@@ -628,21 +613,4 @@ h1, h2, h3 { font-weight: normal; }
   text-shadow: 0 0 8px rgba(255,255,255,0.8);
 }
 
-/* =========================================================
 
-}
-
-
-/* Hardware-accelerated fixed background to prevent scroll lag and stretching */
-.mobile-wrapper::before {
-  content: "";
-  position: fixed;
-  inset: -10%; /* slight bleed to prevent edge showing */
-  background-image: url('../assets/main_bg.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  z-index: -1;
-  transform: translateZ(0);
-  will-change: transform;
-}
