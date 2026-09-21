@@ -1423,3 +1423,92 @@ body {
     width: 22px;
   }
 }
+
+
+/* =========================================================
+   COUPLE PHOTO - REFINED PORTRAIT PRESENTATION
+   ========================================================= */
+
+.couple-section {
+  padding-top: 58px;
+  padding-bottom: 52px;
+}
+
+.couple-section .photo-container {
+  position: relative;
+  width: min(84%, 340px);
+  margin: 0 auto 28px;
+  padding: 9px;
+}
+
+.couple-section .photo-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(212,175,55,0.72);
+  border-radius: 16px;
+  pointer-events: none;
+}
+
+.couple-section .photo-container::after {
+  content: "✦";
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0 8px;
+  background: var(--c-ivory);
+  color: var(--c-gold);
+  font-size: 0.72rem;
+  line-height: 1;
+}
+
+.couple-photo {
+  display: block;
+  width: 100%;
+  max-width: none;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px;
+  border: 4px solid var(--c-ivory);
+  box-shadow: 0 12px 28px rgba(62,44,35,0.16);
+}
+
+.couple-section .couple-text {
+  margin-top: 0;
+  padding: 27px 22px 23px;
+}
+
+.couple-section .accent-title {
+  line-height: 1.05;
+  margin-bottom: 0.8rem;
+}
+
+.couple-section .body-text:last-child {
+  margin-bottom: 0;
+  color: var(--c-maroon);
+  font-family: var(--font-main);
+  font-style: italic;
+}
+
+@media (max-width: 380px) {
+  .couple-section {
+    padding-top: 48px;
+    padding-bottom: 44px;
+  }
+
+  .couple-section .photo-container {
+    width: 88%;
+    margin-bottom: 24px;
+    padding: 7px;
+  }
+
+  .couple-photo {
+    border-width: 3px;
+  }
+
+  .couple-section .couple-text {
+    padding: 24px 18px 20px;
+  }
+}
