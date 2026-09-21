@@ -184,12 +184,14 @@ document.addEventListener("DOMContentLoaded", () => {
      ========================================================= */
   const rsvpForm = document.getElementById('rsvpForm');
   const rsvpSubmitBtn = document.getElementById('rsvpSubmitBtn');
+  const rsvpSuccess = document.getElementById('rsvpSuccess');
 
   if (rsvpForm) {
     rsvpForm.addEventListener('submit', (e) => {
       e.preventDefault();
       
       const originalText = rsvpSubmitBtn.textContent;
+      if (rsvpSuccess) rsvpSuccess.hidden = true;
       rsvpSubmitBtn.textContent = "Sending...";
       rsvpSubmitBtn.disabled = true;
 
@@ -201,12 +203,13 @@ document.addEventListener("DOMContentLoaded", () => {
       // SIMULATE SUBMISSION (Since we don't have a backend URL yet)
       // See below for Google Sheets integration instructions
       setTimeout(() => {
-        alert(`Thank you, ${data.name}! Your RSVP has been received.\n\n(Note: To actually save this to an Excel/Google Sheet, follow the instructions provided by the AI).`);
         rsvpForm.reset();
-        rsvpSubmitBtn.textContent = "RSVP Confirmed!";
-        rsvpSubmitBtn.style.background = "#2c5f2d"; // Green success color
-        rsvpSubmitBtn.style.color = "white";
+        rsvpSubmitBtn.textContent = "RSVP Received";
         rsvpSubmitBtn.disabled = false;
+        if (rsvpSuccess) {
+          rsvpSuccess.querySelector("strong").textContent = `Thank you, ${data.name}!`;
+          rsvpSuccess.hidden = false;
+        }
       }, 800);
 
       /*
