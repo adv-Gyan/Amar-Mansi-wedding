@@ -194,56 +194,89 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =========================================================
      5. RSVP FORM SUBMISSION
      ========================================================= */
-  const rsvpForm = document.getElementById('rsvpForm');
-  const rsvpSubmitBtn = document.getElementById('rsvpSubmitBtn');
-  const rsvpSuccess = document.getElementById('rsvpSuccess');
+
+  /*
+   * Google Apps Script Web App endpoint.
+   * Replace this placeholder with the /exec URL after deploying
+   * the Google Apps Script supplied with this project.
+   */
+  const RSVP_ENDPOINT = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL";
+
+  const rsvpForm = document.getElementById("rsvpForm");
+  const rsvpSubmitBtn = document.getElementById("rsvpSubmitBtn");
+  const rsvpSuccess = document.getElementById("rsvpSuccess");
 
   if (rsvpForm) {
-    rsvpForm.addEventListener('submit', (e) => {
+    rsvpForm.addEventListener("submit", async (e) => {
       e.preventDefault();
-      
+
+      if (!rsvpSubmitBtn) return;
+
       const originalText = rsvpSubmitBtn.textContent;
       if (rsvpSuccess) rsvpSuccess.hidden = true;
+
+      if (RSVP_ENDPOINT === "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL") {
+        rsvpSubmitBtn.textContent = "RSVP Not Connected";
+        rsvpSubmitBtn.disabled = false;
+
+        if (rsvpSuccess) {
+          rsvpSuccess.querySelector("strong").textContent = "RSVP setup incomplete";
+          rsvpSuccess.querySelector("span:last-child").textContent =
+            "The RSVP service still needs its Google Apps Script Web App URL.";
+          rsvpSuccess.hidden = false;
+        }
+        return;
+      }
+
       rsvpSubmitBtn.textContent = "Sending...";
       rsvpSubmitBtn.disabled = true;
 
-      // Extract form data
       const formData = new FormData(rsvpForm);
-      const data = Object.fromEntries(formData.entries());
-      data.events = formData.getAll("events").join(", ");
-      
-      // SIMULATE SUBMISSION (Since we don't have a backend URL yet)
-      // See below for Google Sheets integration instructions
-      setTimeout(() => {
+      const data = new URLSearchParams();
+
+      data.set("name", String(formData.get("name") || "").trim());
+      data.set("phone", String(formData.get("phone") || "").trim());
+      data.set("attendance", String(formData.get("attendance") || ""));
+      data.set("events", formData.getAll("events").join(", "));
+
+      try {
+        const response = await fetch(RSVP_ENDPOINT, {
+          method: "POST",
+          body: data
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+
+        const result = await response.json();
+
+        if (!result.success) {
+          throw new Error(result.error || "The RSVP service rejected the submission.");
+        }
+
         rsvpForm.reset();
         rsvpSubmitBtn.textContent = "RSVP Received";
         rsvpSubmitBtn.disabled = false;
+
         if (rsvpSuccess) {
-          rsvpSuccess.querySelector("strong").textContent = `Thank you, ${data.name}!`;
+          rsvpSuccess.querySelector("strong").textContent = `Thank you, ${data.get("name")}!`;
+          rsvpSuccess.querySelector("span:last-child").textContent =
+            "Your response has been recorded successfully.";
           rsvpSuccess.hidden = false;
         }
-      }, 800);
+      } catch (error) {
+        console.error("RSVP submission failed:", error);
 
-      /*
-      // --- REAL GOOGLE SHEETS / EXCEL SUBMISSION CODE ---
-      // Replace 'YOUR_WEB_APP_URL' with the link from Google Apps Script
-      
-      fetch('YOUR_WEB_APP_URL', {
-        method: 'POST',
-        body: new URLSearchParams(data)
-      })
-      .then(res => res.json())
-      .then(response => {
-        alert("Thank you! Your RSVP is confirmed.");
-        rsvpForm.reset();
         rsvpSubmitBtn.textContent = originalText;
         rsvpSubmitBtn.disabled = false;
-      })
-      .catch(err => {
-        alert("Error sending RSVP. Please try again.");
-        rsvpSubmitBtn.textContent = originalText;
-        rsvpSubmitBtn.disabled = false;
-      });
-      */
+
+        if (rsvpSuccess) {
+          rsvpSuccess.querySelector("strong").textContent = "Submission failed";
+          rsvpSuccess.querySelector("span:last-child").textContent =
+            "Please check your connection and try again.";
+          rsvpSuccess.hidden = false;
+        }
+      }
     });
   }
