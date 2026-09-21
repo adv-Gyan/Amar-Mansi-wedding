@@ -2269,3 +2269,166 @@ body {
     letter-spacing: 0.1em;
   }
 }
+
+
+/* =========================================================
+   FINAL MOBILE PASS - iPHONE SPACING & PERFORMANCE
+   ========================================================= */
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-width: 320px;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.mobile-wrapper {
+  min-height: 100svh;
+  width: 100%;
+  max-width: 480px;
+  overflow-x: clip;
+  box-shadow: none;
+}
+
+.hero-section {
+  min-height: 100svh;
+}
+
+.invite-section {
+  padding-left: clamp(14px, 5vw, 24px);
+  padding-right: clamp(14px, 5vw, 24px);
+}
+
+.timeline-item,
+.rsvp-card,
+.venue-card,
+.couple-text {
+  max-width: 100%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+button,
+input,
+select,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.am-input,
+.rsvp-form .am-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+@media (max-width: 480px) {
+  .invite-envelope-wrapper {
+    position: fixed;
+    height: 100svh;
+    min-height: 100svh;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .envelope-content-container {
+    max-height: calc(100svh - 24px);
+  }
+
+  .hero-content {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .section-title {
+    margin-bottom: 1.7rem;
+  }
+
+  .theme-separator {
+    margin-left: 14px;
+    margin-right: 14px;
+  }
+
+  .couple-section .photo-container {
+    width: min(88%, 340px);
+  }
+
+  .timeline-container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .timeline-item {
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+
+  .countdown-wrapper {
+    width: 100%;
+  }
+
+  .venue-card,
+  .rsvp-card {
+    width: 100%;
+  }
+
+  .music-toggle {
+    right: max(12px, env(safe-area-inset-right));
+    bottom: max(13px, env(safe-area-inset-bottom));
+  }
+}
+
+@media (max-width: 360px) {
+  .invite-section {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .hero-names {
+    font-size: 2.85rem;
+  }
+
+  .hero-date {
+    font-size: 0.78rem;
+  }
+
+  .hero-content .wedding-hashtag {
+    font-size: 0.56rem;
+    letter-spacing: 0.16em;
+  }
+
+  .couple-section .photo-container {
+    width: 92%;
+  }
+
+  .timeline-item {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .rsvp-card,
+  .venue-card {
+    border-radius: 15px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
