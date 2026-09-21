@@ -200,7 +200,7 @@ document.addEventListener("DOMContentLoaded", () => {
    * Replace this placeholder with the /exec URL after deploying
    * the Google Apps Script supplied with this project.
    */
-  const RSVP_ENDPOINT = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL";
+  const RSVP_ENDPOINT = "https://script.google.com/macros/s/AKfycbwXXwOAEj6vjYAQ07Hpa3CgOXC_z5BAO7aILph6Hro-SwCDVKF7cI7MusOJdO5soXPMbA/exec";
 
   const rsvpForm = document.getElementById("rsvpForm");
   const rsvpSubmitBtn = document.getElementById("rsvpSubmitBtn");
