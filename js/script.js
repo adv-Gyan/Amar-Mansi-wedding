@@ -11,6 +11,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const musicIcon = document.getElementById("musicIcon");
   const musicLabel = document.getElementById("musicLabel");
 
+  function updateMusicAvailability() {
+    if (!weddingMusic || !musicToggle) return;
+    const hasSource = weddingMusic.querySelector("source");
+    if (!hasSource || !hasSource.getAttribute("src")) {
+      musicToggle.disabled = true;
+      musicToggle.title = "Wedding music is not available";
+      setMusicButtonState(false);
+    }
+  }
+
+  updateMusicAvailability();
+
   if (envelopeWrapper && envelopeImage) {
     envelopeImage.addEventListener("click", () => {
       if (envelopeWrapper.classList.contains("is-opening")) return;
