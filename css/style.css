@@ -1111,3 +1111,127 @@ h1, h2, h3 { font-weight: normal; }
     font-size: 0.66rem;
   }
 }
+
+
+/* =========================================================
+   ENVELOPE OPENING - PREMIUM PRESENTATION
+   ========================================================= */
+
+.envelope-content-container {
+  width: min(84%, 350px);
+  max-width: 350px;
+  padding: 30px 0 38px;
+}
+
+.envelope-kicker {
+  margin-bottom: 8px;
+  font-size: 0.66rem;
+  letter-spacing: 0.3em;
+}
+
+.envelope-names {
+  margin-bottom: 7px;
+  font-size: clamp(2.55rem, 11vw, 3.25rem);
+  line-height: 1.02;
+}
+
+.envelope-date {
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+}
+
+.envelope-rule {
+  width: 48%;
+  margin: 12px auto 15px;
+}
+
+.invite-envelope {
+  filter: drop-shadow(0 15px 24px rgba(62,44,35,0.2));
+  transform: translateZ(0);
+}
+
+.envelope-body {
+  padding: 4px;
+}
+
+.envelope-hint {
+  margin-top: 14px;
+  font-size: 0.64rem;
+  letter-spacing: 0.18em;
+}
+
+.envelope-subhint {
+  margin-top: 6px;
+  font-size: 0.7rem;
+}
+
+.invite-envelope-wrapper.is-opening .envelope-content-container {
+  animation: envelope-open-lift 0.78s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.invite-envelope-wrapper.is-opening .envelope-image {
+  animation: envelope-seal-bloom 0.78s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.invite-envelope-wrapper.is-opening .envelope-hint,
+.invite-envelope-wrapper.is-opening .envelope-subhint,
+.invite-envelope-wrapper.is-opening .envelope-kicker,
+.invite-envelope-wrapper.is-opening .envelope-date,
+.invite-envelope-wrapper.is-opening .envelope-rule {
+  animation: envelope-detail-fade 0.55s ease both;
+}
+
+@keyframes envelope-open-lift {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  45% {
+    transform: translateY(-7px) scale(1.012);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-18px) scale(0.985);
+    opacity: 0.82;
+  }
+}
+
+@keyframes envelope-seal-bloom {
+  0% {
+    transform: scale(1);
+    filter: brightness(1);
+    box-shadow: 0 0 0 0 rgba(212,175,55,0);
+  }
+  38% {
+    transform: scale(1.012);
+    filter: brightness(1.04);
+    box-shadow: 0 0 0 9px rgba(212,175,55,0.16);
+  }
+  100% {
+    transform: scale(0.985);
+    filter: brightness(1.02);
+    box-shadow: 0 0 0 26px rgba(212,175,55,0);
+  }
+}
+
+@keyframes envelope-detail-fade {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+}
+
+@media (max-width: 380px) {
+  .envelope-content-container {
+    width: 84%;
+    padding: 24px 0 30px;
+  }
+
+  .envelope-names {
+    font-size: 2.45rem;
+  }
+}
