@@ -6,16 +6,54 @@ document.addEventListener("DOMContentLoaded", () => {
   const envelopeWrapper = document.getElementById("inviteEnvelopeWrapper");
   const envelopeImage = document.getElementById("envelopeImage");
   const mainContent = document.getElementById("mainContent");
+  const weddingMusic = document.getElementById("weddingMusic");
+  const musicToggle = document.getElementById("musicToggle");
+  const musicIcon = document.getElementById("musicIcon");
+  const musicLabel = document.getElementById("musicLabel");
 
   if (envelopeWrapper && envelopeImage) {
     envelopeImage.addEventListener("click", () => {
       envelopeImage.classList.add("is-glowing");
+
+      // The envelope click is a direct user gesture, so start the music here.
+      if (weddingMusic) {
+        weddingMusic.volume = 0.55;
+        weddingMusic.play().then(() => {
+          setMusicButtonState(true);
+        }).catch(() => {
+          setMusicButtonState(false);
+        });
+      }
+
       setTimeout(() => {
         envelopeWrapper.classList.add("is-hidden");
         mainContent.classList.remove("hidden");
         window.scrollTo(0, 0);
       }, 500); 
     });
+  }
+
+  function setMusicButtonState(isPlaying) {
+    if (!musicToggle) return;
+    musicToggle.classList.toggle("is-playing", isPlaying);
+    musicToggle.setAttribute("aria-pressed", String(isPlaying));
+    musicToggle.setAttribute("aria-label", isPlaying ? "Pause music" : "Play music");
+    if (musicIcon) musicIcon.textContent = isPlaying ? "♫" : "♪";
+    if (musicLabel) musicLabel.textContent = isPlaying ? "Music On" : "Music Off";
+  }
+
+  if (musicToggle && weddingMusic) {
+    musicToggle.addEventListener("click", () => {
+      if (weddingMusic.paused) {
+        weddingMusic.play().then(() => setMusicButtonState(true)).catch(() => {});
+      } else {
+        weddingMusic.pause();
+        setMusicButtonState(false);
+      }
+    });
+
+    weddingMusic.addEventListener("play", () => setMusicButtonState(true));
+    weddingMusic.addEventListener("pause", () => setMusicButtonState(false));
   }
 
   /* =========================================================
