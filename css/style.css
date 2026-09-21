@@ -1930,3 +1930,74 @@ body {
     letter-spacing: 0.09em;
   }
 }
+
+
+/* =========================================================
+   MUSIC CONTROL - REFINED FLOATING BUTTON
+   ========================================================= */
+
+.music-toggle {
+  position: fixed;
+  right: 16px;
+  bottom: 18px;
+  z-index: 5000;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 42px;
+  height: 42px;
+  padding: 0 12px;
+  border: 1px solid rgba(212,175,55,0.68);
+  border-radius: 999px;
+  background: rgba(248,239,227,0.94);
+  color: var(--c-maroon);
+  box-shadow: 0 7px 18px rgba(62,44,35,0.14);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  font-family: var(--font-sub);
+  font-size: 0.57rem;
+  font-weight: 600;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.music-toggle:active {
+  transform: scale(0.96);
+}
+
+.music-toggle.is-playing {
+  background: rgba(107,15,26,0.94);
+  color: var(--c-ivory);
+  box-shadow: 0 8px 20px rgba(107,15,26,0.2);
+}
+
+.music-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  font-family: var(--font-main);
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.music-label {
+  white-space: nowrap;
+}
+
+@media (max-width: 380px) {
+  .music-toggle {
+    right: 12px;
+    bottom: 13px;
+    height: 39px;
+    min-width: 39px;
+    padding: 0 10px;
+    font-size: 0.52rem;
+  }
+
+  .music-icon {
+    width: 14px;
+  }
+}
