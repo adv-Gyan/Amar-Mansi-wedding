@@ -975,3 +975,99 @@ h1, h2, h3 { font-weight: normal; }
     font-size: 2.3rem;
   }
 }
+
+
+/* =========================================================
+   ENVELOPE PAGE - UNIFORM MOBILE PRESENTATION
+   ========================================================= */
+
+.invite-envelope-wrapper {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100dvh;
+  min-height: 100svh;
+  background: var(--c-ivory);
+  background-image: none;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+.invite-envelope-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--c-ivory);
+  opacity: 1;
+}
+
+.invite-envelope-wrapper::after {
+  inset: 14px;
+  border-color: rgba(107,15,26,0.18);
+  box-shadow: inset 0 0 0 1px rgba(212,175,55,0.18);
+}
+
+.envelope-content-container {
+  width: min(88%, 390px);
+  max-width: 390px;
+  min-height: 100%;
+  padding: 34px 0 42px;
+  transform: none;
+  justify-content: center;
+}
+
+.envelope-kicker {
+  color: var(--c-brown);
+  opacity: 0.9;
+}
+
+.envelope-names {
+  color: var(--c-maroon);
+  text-shadow: none;
+}
+
+.envelope-names .ampersand {
+  text-shadow: none;
+}
+
+.envelope-date {
+  color: var(--c-brown);
+  opacity: 1;
+}
+
+.envelope-rule {
+  color: var(--c-gold);
+}
+
+.envelope-image {
+  display: block;
+}
+
+.envelope-hint {
+  color: var(--c-maroon);
+  text-shadow: none;
+}
+
+.envelope-subhint {
+  color: var(--c-brown);
+  opacity: 0.78;
+}
+
+@media (max-width: 480px) {
+  .invite-envelope-wrapper::after {
+    inset: 10px;
+  }
+
+  .envelope-content-container {
+    width: min(88%, 390px);
+    padding: 28px 0 36px;
+  }
+}
+
+@media (max-width: 380px) {
+  .envelope-content-container {
+    width: 86%;
+    padding: 22px 0 30px;
+  }
+}
