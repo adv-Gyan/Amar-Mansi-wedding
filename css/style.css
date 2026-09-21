@@ -2001,3 +2001,101 @@ body {
     width: 14px;
   }
 }
+
+
+/* =========================================================
+   FOOTER - REFINED CLOSING CARD
+   ========================================================= */
+
+.invite-footer {
+  position: relative;
+  overflow: hidden;
+  padding: 48px 24px 40px;
+  background: var(--c-maroon);
+  text-align: center;
+}
+
+.invite-footer::before,
+.invite-footer::after {
+  content: "✦";
+  position: absolute;
+  top: 18px;
+  color: rgba(212,175,55,0.62);
+  font-size: 0.7rem;
+}
+
+.invite-footer::before {
+  left: 26%;
+}
+
+.invite-footer::after {
+  right: 26%;
+}
+
+.footer-logo {
+  margin-bottom: 14px;
+}
+
+.am-logo-mark {
+  width: 54px;
+  height: 54px;
+  object-fit: cover;
+  border: 1px solid rgba(212,175,55,0.7);
+  border-radius: 50%;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.16);
+}
+
+.invite-footer .gold-line {
+  width: 76px;
+  height: 1px;
+  margin: 0 auto 17px;
+  background: rgba(212,175,55,0.75);
+}
+
+.footer-names {
+  font-family: var(--font-main);
+  color: var(--c-ivory);
+  font-size: clamp(1.8rem, 7vw, 2.35rem);
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+}
+
+.invite-footer .body-text {
+  max-width: 290px;
+  margin: 10px auto 0;
+  color: rgba(248,239,227,0.82);
+  font-size: 0.78rem;
+  line-height: 1.65;
+}
+
+.wedding-hashtag--footer {
+  margin-top: 15px;
+  color: var(--c-gold);
+  font-family: var(--font-sub);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+}
+
+@media (max-width: 380px) {
+  .invite-footer {
+    padding: 42px 20px 34px;
+  }
+
+  .invite-footer::before {
+    left: 20%;
+  }
+
+  .invite-footer::after {
+    right: 20%;
+  }
+
+  .am-logo-mark {
+    width: 50px;
+    height: 50px;
+  }
+
+  .footer-names {
+    font-size: 1.75rem;
+  }
+}
