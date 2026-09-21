@@ -1235,3 +1235,94 @@ h1, h2, h3 { font-weight: normal; }
     font-size: 2.45rem;
   }
 }
+
+
+/* =========================================================
+   GLOBAL THEME - UNIFIED IVORY / CHAMPAGNE PALETTE
+   ========================================================= */
+
+:root {
+  --c-ivory: #F8EFE3;
+  --c-ivory-soft: #F5E8D8;
+  --c-card: #F8EFE3;
+  --c-card-soft: #F6EBDD;
+  --c-maroon: #6B0F1A;
+  --c-gold: #D4AF37;
+  --c-brown: #3E2C23;
+}
+
+body {
+  background: var(--c-ivory);
+  color: var(--c-brown);
+}
+
+.mobile-wrapper {
+  background-color: var(--c-ivory);
+  background-image:
+    linear-gradient(rgba(248,239,227,0.88), rgba(248,239,227,0.88)),
+    url('../assets/main_bg.png');
+  background-size: 100% auto;
+  background-repeat: repeat-y;
+  background-position: top center;
+}
+
+/* Keep the hero visually connected to the invitation background. */
+.hero-section {
+  background-color: var(--c-ivory);
+  background-image:
+    linear-gradient(rgba(248,239,227,0.34), rgba(248,239,227,0.34)),
+    url('../assets/hero_bg.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Consistent section surfaces. */
+.invite-section {
+  background: transparent;
+}
+
+.couple-text,
+.venue-card,
+.rsvp-card,
+.timeline-item {
+  background: rgba(248,239,227,0.94);
+  border-color: rgba(212,175,55,0.34);
+  box-shadow: 0 8px 24px rgba(62,44,35,0.08);
+}
+
+.venue-card {
+  background: rgba(248,239,227,0.96);
+}
+
+.am-input {
+  background: rgba(248,239,227,0.72);
+  border-color: rgba(212,175,55,0.42);
+}
+
+.theme-separator {
+  opacity: 0.72;
+}
+
+.theme-separator::before,
+.theme-separator::after {
+  background: linear-gradient(to right, transparent, rgba(212,175,55,0.7) 80%);
+}
+
+.theme-separator::after {
+  background: linear-gradient(to left, transparent, rgba(212,175,55,0.7) 80%);
+}
+
+/* Countdown cards use the same warm ivory family rather than a separate beige. */
+.cd-box {
+  filter: drop-shadow(0 5px 10px rgba(62,44,35,0.10));
+}
+
+/* Envelope remains part of the same visual system. */
+.invite-envelope-wrapper,
+.invite-envelope-wrapper::before {
+  background: var(--c-ivory);
+}
+
+.invite-footer {
+  background: var(--c-maroon);
+}
