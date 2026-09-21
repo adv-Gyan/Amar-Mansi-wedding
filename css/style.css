@@ -1837,88 +1837,136 @@ body {
 
 
 /* =========================================================
-   COUNTDOWN - CLEAN EDITORIAL PRESENTATION
+   COUNTDOWN - ORIGINAL ORNATE DESIGN / MOBILE FIX
    ========================================================= */
 
 .countdown-section {
-  padding: 52px 18px 56px;
+  padding: 52px 16px 56px;
 }
 
 .countdown-section .section-title {
-  margin-bottom: 1.7rem;
+  margin-bottom: 2rem;
 }
 
 .countdown-wrapper {
-  width: min(100%, 390px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: min(100%, 430px);
+  max-width: 430px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
-  align-items: stretch;
+  gap: 0;
 }
 
 .cd-box {
+  width: 21%;
+  aspect-ratio: 0.62;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 0 1 21%;
   min-width: 0;
-  padding: 13px 5px 11px;
-  border: 1px solid rgba(212,175,55,0.42);
-  border-radius: 10px;
-  background: rgba(248,239,227,0.76);
-  filter: none;
-  box-shadow: 0 7px 18px rgba(62,44,35,0.07);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 150'%3E%3Cpath d='M 50 2 C 55 15, 70 10, 85 20 C 92 25, 96 32, 96 45 L 96 105 C 96 118, 92 125, 85 130 C 70 140, 55 135, 50 148 C 45 135, 30 140, 15 130 C 8 125, 4 118, 4 105 L 4 45 C 4 32, 8 25, 15 20 C 30 10, 45 15, 50 2 Z' fill='%23F1E4D3' stroke='%23b30000' stroke-width='1.5'/%3E%3Cpath d='M 50 2 C 55 15, 70 10, 85 20 C 92 25, 96 32, 96 45 L 96 105 C 96 118, 92 125, 85 130 C 70 140, 55 135, 50 148 C 45 135, 30 140, 15 130 C 8 125, 4 118, 4 105 L 4 45 C 4 32, 8 25, 15 20 C 30 10, 45 15, 50 2 Z' fill='none' stroke='%23B9924B' stroke-width='0.5' transform='translate(50,75) scale(0.92) translate(-50,-75)'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: drop-shadow(0 6px 10px rgba(62,44,35,0.10));
+  padding: 10px 0;
 }
 
 .cd-flourish {
-  display: none;
+  color: var(--c-maroon);
+  font-size: clamp(0.5rem, 2vw, 0.7rem);
+  line-height: 1;
+  opacity: 0.8;
+}
+
+.cd-flourish.top {
+  margin-bottom: 3px;
+}
+
+.cd-flourish.bottom {
+  margin-top: 3px;
 }
 
 .cd-num {
   display: block;
   font-family: var(--font-main);
+  font-size: clamp(1.5rem, 6vw, 2.5rem);
   color: var(--c-maroon);
-  font-size: clamp(1.7rem, 7vw, 2.15rem);
   line-height: 1;
   font-weight: 600;
-  letter-spacing: 0.02em;
+  text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
 .cd-sep {
-  width: 26px;
+  width: 52%;
   height: 1px;
-  margin: 8px auto 7px;
-  background: rgba(212,175,55,0.55);
-  font-size: 0;
+  background: var(--c-gold);
+  margin: 7px 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .cd-sep span {
-  display: none;
+  background: #F1E4D3;
+  padding: 0 3px;
+  color: var(--c-maroon);
+  font-size: 0.4rem;
+  line-height: 1;
 }
 
 .cd-label {
   display: block;
   font-family: var(--font-sub);
-  color: var(--c-brown);
-  font-size: 0.54rem;
-  letter-spacing: 0.12em;
+  font-size: clamp(0.4rem, 1.8vw, 0.65rem);
+  letter-spacing: 0.14em;
+  color: var(--c-maroon);
   line-height: 1.2;
-  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
 }
 
 .cd-divider {
-  display: none;
+  display: block;
+  width: 4%;
+  height: 1px;
+  flex: 0 0 4%;
+  background: var(--c-gold);
+  position: relative;
+  margin: 0 1px;
+}
+
+.cd-divider::after {
+  content: "✦";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--c-maroon);
+  background: var(--c-ivory);
+  padding: 0 2px;
+  font-size: clamp(0.5rem, 2vw, 0.7rem);
 }
 
 @media (max-width: 380px) {
   .countdown-section {
-    padding: 46px 14px 48px;
+    padding: 46px 10px 48px;
   }
 
   .countdown-wrapper {
-    gap: 6px;
+    width: min(100%, 360px);
   }
 
   .cd-box {
-    padding: 12px 3px 10px;
+    width: 21%;
+    flex-basis: 21%;
   }
 
   .cd-num {
@@ -1926,11 +1974,14 @@ body {
   }
 
   .cd-label {
-    font-size: 0.5rem;
+    font-size: 0.48rem;
     letter-spacing: 0.09em;
   }
-}
 
+  .cd-sep {
+    margin: 6px 0;
+  }
+}
 
 /* =========================================================
    MUSIC CONTROL - REFINED FLOATING BUTTON
