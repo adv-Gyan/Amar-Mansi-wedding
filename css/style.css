@@ -212,7 +212,7 @@ h1, h2, h3 { font-weight: normal; }
   position: relative;
   z-index: 10; /* Above petals */
   text-align: center;
-  padding: 25vh 20px 40px; /* Shift down to avoid overlap with AM logo on bg */
+  padding: 16vh 20px 40px; /* Position names higher within the hero */
   width: 100%;
 }
 
