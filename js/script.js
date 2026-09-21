@@ -13,6 +13,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (envelopeWrapper && envelopeImage) {
     envelopeImage.addEventListener("click", () => {
+      if (envelopeWrapper.classList.contains("is-opening")) return;
+
+      envelopeWrapper.classList.add("is-opening");
       envelopeImage.classList.add("is-glowing");
 
       // The envelope click is a direct user gesture, so start the music here.
@@ -29,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
         envelopeWrapper.classList.add("is-hidden");
         mainContent.classList.remove("hidden");
         window.scrollTo(0, 0);
-      }, 500); 
+      }, 650); 
     });
   }
 
