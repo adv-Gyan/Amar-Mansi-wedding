@@ -1834,3 +1834,99 @@ body {
     padding: 8px 10px;
   }
 }
+
+
+/* =========================================================
+   COUNTDOWN - CLEAN EDITORIAL PRESENTATION
+   ========================================================= */
+
+.countdown-section {
+  padding: 52px 18px 56px;
+}
+
+.countdown-section .section-title {
+  margin-bottom: 1.7rem;
+}
+
+.countdown-wrapper {
+  width: min(100%, 390px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  align-items: stretch;
+}
+
+.cd-box {
+  position: relative;
+  min-width: 0;
+  padding: 13px 5px 11px;
+  border: 1px solid rgba(212,175,55,0.42);
+  border-radius: 10px;
+  background: rgba(248,239,227,0.76);
+  filter: none;
+  box-shadow: 0 7px 18px rgba(62,44,35,0.07);
+}
+
+.cd-flourish {
+  display: none;
+}
+
+.cd-num {
+  display: block;
+  font-family: var(--font-main);
+  color: var(--c-maroon);
+  font-size: clamp(1.7rem, 7vw, 2.15rem);
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.cd-sep {
+  width: 26px;
+  height: 1px;
+  margin: 8px auto 7px;
+  background: rgba(212,175,55,0.55);
+  font-size: 0;
+}
+
+.cd-sep span {
+  display: none;
+}
+
+.cd-label {
+  display: block;
+  font-family: var(--font-sub);
+  color: var(--c-brown);
+  font-size: 0.54rem;
+  letter-spacing: 0.12em;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+.cd-divider {
+  display: none;
+}
+
+@media (max-width: 380px) {
+  .countdown-section {
+    padding: 46px 14px 48px;
+  }
+
+  .countdown-wrapper {
+    gap: 6px;
+  }
+
+  .cd-box {
+    padding: 12px 3px 10px;
+  }
+
+  .cd-num {
+    font-size: 1.55rem;
+  }
+
+  .cd-label {
+    font-size: 0.5rem;
+    letter-spacing: 0.09em;
+  }
+}
