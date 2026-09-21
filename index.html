@@ -46,6 +46,16 @@
   </div>
 
   <main id="mainContent" class="hidden">
+
+    <!-- MUSIC PLAYER -->
+    <audio id="weddingMusic" preload="auto" loop>
+      <source src="assets/wedding-music.mp3" type="audio/mpeg">
+    </audio>
+
+    <button class="music-toggle" id="musicToggle" type="button" aria-label="Pause music" aria-pressed="true">
+      <span class="music-icon" id="musicIcon">♫</span>
+      <span class="music-label" id="musicLabel">Music On</span>
+    </button>
     
     <!-- GLOBAL PETALS (Covers the whole page) -->
     <div class="petal-field">
