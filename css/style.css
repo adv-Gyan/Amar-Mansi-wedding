@@ -1512,3 +1512,135 @@ body {
     padding: 24px 18px 20px;
   }
 }
+
+
+/* =========================================================
+   EVENT CARDS - REFINED WEDDING SCHEDULE
+   ========================================================= */
+
+.timeline-section {
+  padding-top: 54px;
+  padding-bottom: 54px;
+}
+
+.timeline-section .section-title {
+  margin-bottom: 2.25rem;
+}
+
+.timeline-container {
+  gap: 34px;
+  padding: 8px 0 12px;
+}
+
+.timeline-item {
+  margin: 0 8px;
+  padding: 9px;
+  border-radius: 14px;
+  background: rgba(248,239,227,0.97);
+  border: 1px solid rgba(212,175,55,0.42);
+  box-shadow: 0 10px 26px rgba(62,44,35,0.09);
+  overflow: hidden;
+}
+
+.timeline-image {
+  border-radius: 9px;
+  border: 1px solid rgba(212,175,55,0.72);
+  box-shadow: 0 4px 12px rgba(62,44,35,0.08);
+}
+
+.timeline-card {
+  width: 100%;
+  padding: 18px 10px 13px;
+  text-align: center;
+}
+
+.event-title {
+  font-family: var(--font-main);
+  color: var(--c-maroon);
+  font-size: 1.55rem;
+  letter-spacing: 0.04em;
+  margin-bottom: 7px;
+}
+
+.event-date {
+  font-family: var(--font-sub);
+  color: var(--c-brown);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.event-time {
+  margin-top: 6px;
+  font-family: var(--font-body);
+  color: var(--c-maroon);
+  font-size: 0.92rem;
+  font-style: italic;
+}
+
+.event-venue {
+  margin-top: 4px;
+  font-family: var(--font-body);
+  color: var(--c-brown);
+  font-size: 0.78rem;
+  opacity: 0.78;
+}
+
+.timeline-item::after {
+  content: "✦";
+  position: absolute;
+  bottom: -9px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0 8px;
+  background: var(--c-ivory);
+  color: var(--c-gold);
+  font-size: 0.62rem;
+  z-index: 4;
+}
+
+.timeline-item:last-child::after {
+  display: none;
+}
+
+/* Keep the decorative timeline line subtle so the cards remain the focus. */
+.wavy-line {
+  opacity: 0.72;
+}
+
+@media (max-width: 380px) {
+  .timeline-section {
+    padding-top: 46px;
+    padding-bottom: 46px;
+  }
+
+  .timeline-container {
+    gap: 28px;
+  }
+
+  .timeline-item {
+    margin: 0 4px;
+    padding: 7px;
+  }
+
+  .timeline-card {
+    padding: 15px 8px 11px;
+  }
+
+  .event-title {
+    font-size: 1.4rem;
+  }
+
+  .event-date {
+    font-size: 0.7rem;
+  }
+
+  .event-time {
+    font-size: 0.86rem;
+  }
+
+  .event-venue {
+    font-size: 0.74rem;
+  }
+}
